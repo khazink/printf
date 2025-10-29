@@ -1,14 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/29 15:19:19 by kkaman            #+#    #+#             */
+/*   Updated: 2025/10/29 17:07:37 by kkaman           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
-#include "stdio.h"
 
 int	ft_printf(char const *input, ...)
 {
 	int count;
+	va_list	args;
 
 	count = 0;
+	va_start(args, input);
 	while (*input != '\0')
 	{
-		if (*input != '%')
+		if (*input == '%')
+		{
+			count += print_handle(*input);
+		}
+		else
 		{
 			ft_putchar(*input);
 			count++;
@@ -18,13 +35,31 @@ int	ft_printf(char const *input, ...)
 	return (count);
 }
 
-int	main(void)
+int	print_handle(const char **input)
 {
-	int	count;
+	(*input)++; //skip %
+	
+	//check for flags
+	while (**input == '-' || **input == '0' || **input == '.'
+	     || **input == '#' || **input == ' ' || **input == '+')
+	{
+		handle_flag(**input);
+		(*input)++;
+	}
+	
+	//check for width
+	while (ft_isdigit(**input))
+	{
+		handle_width(**input);
+		(*input)++;
+	}
 
-	count = ft_printf("All are great");
-	printf("\n%d\n",count);
-	count = ft_printf("get some %d here");
-	printf("\n2nd row %d\n", count);	
-	return 0;
-}	
+	//check for precision
+	while (**input == '.')
+	{
+		handle_precision(**input)
+	}
+
+	//check for specifier
+	return (len)
+}

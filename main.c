@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/29 15:20:13 by kkaman            #+#    #+#             */
-/*   Updated: 2025/10/29 15:20:18 by kkaman           ###   ########.fr       */
+/*   Created: 2025/10/29 15:18:57 by kkaman            #+#    #+#             */
+/*   Updated: 2025/10/29 15:19:48 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_print.h"
 
-void	ft_putchar(char c)
+int     main(void)
 {
-	write(1, &c, 1);
+        int     count;
+
+        count = ft_printf("All are great");
+        printf("\n%d\n",count);
+        count = ft_printf("get some %d here");
+        printf("\n2nd row %d\n", count);
+        return 0;
 }
+
