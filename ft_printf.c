@@ -6,60 +6,46 @@
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:19:19 by kkaman            #+#    #+#             */
-/*   Updated: 2025/10/29 17:07:37 by kkaman           ###   ########.fr       */
+/*   Updated: 2025/10/30 13:00:01 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-int	ft_printf(char const *input, ...)
+int	ft_printf(char const *str, ...)
 {
 	int count;
-	va_list	args;
+	va_list	input;
 
+	if (!str)
+		return (-1);
 	count = 0;
-	va_start(args, input);
-	while (*input != '\0')
+	va_start(input, str);
+	while (*str != '\0')
 	{
-		if (*input == '%')
-		{
-			count += print_handle(*input);
-		}
+		if (*str == '%')
+			count += print_handle(&str, input);
 		else
 		{
 			ft_putchar(*input);
 			count++;
 		}
-		input++;
+		str++;
 	}
+	va_end(input);
 	return (count);
 }
 
-int	print_handle(const char **input)
+int	print_handle(const char **str, va_list input)
 {
-	(*input)++; //skip %
-	
-	//check for flags
-	while (**input == '-' || **input == '0' || **input == '.'
-	     || **input == '#' || **input == ' ' || **input == '+')
-	{
-		handle_flag(**input);
-		(*input)++;
-	}
-	
-	//check for width
-	while (ft_isdigit(**input))
-	{
-		handle_width(**input);
-		(*input)++;
-	}
+	t_string s;
 
-	//check for precision
-	while (**input == '.')
-	{
-		handle_precision(**input)
-	}
-
-	//check for specifier
-	return (len)
+	(*str)++; //skip %
+	
+	init_s(&s);
+	handle_flag(str, &s);
+	handle_width(str, &s);
+	handle_precision(str, &s);
+	return(print_specifier(str, &s));
 }

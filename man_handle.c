@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   man_handle.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/29 15:20:02 by kkaman            #+#    #+#             */
-/*   Updated: 2025/10/30 13:00:09 by kkaman           ###   ########.fr       */
+/*   Created: 2025/10/30 11:58:36 by kkaman            #+#    #+#             */
+/*   Updated: 2025/10/30 13:00:06 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include <stdlib.h>
-#include <stdarg.h>
-#include <unistd.h>
-
-typedef struct	s_string
+void	handle_flag(const char **str)
 {
-	int	minus;
-	int	zero;
-	int	plus;
-	int	space;
-	int	hash;
-	int	width;
-	int	precision;
-	int	has_prec;
-	char	specifier;
-}	t_string;
+	while (**str)
+	if (**str == '-')
+		s->minus = 1;
+	else if (**str == '0')
+		s->zero = 1;
+	else if (**str == '+')
+		s->plus = 1;
+	else if (**str == ' ')
+		s->space = 1;
+	else if (**str == '#')
+		s->hash = 1;
+	else
+		break ;
+	(*str)++;
+}
 
-void	ft_putchar(char c);
-int		ft_printf(char const *input, ...);
-int		print_handle(const char **s, va_list input);
-
-#endif
+void	handle_width(const char **str, t_
