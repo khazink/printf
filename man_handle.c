@@ -6,7 +6,7 @@
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 11:58:36 by kkaman            #+#    #+#             */
-/*   Updated: 2025/10/31 18:20:06 by kkaman           ###   ########.fr       */
+/*   Updated: 2025/11/01 00:53:21 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,21 @@
 void	handle_flag(const char **str)
 {
 	while (**str)
-	if (**str == '-')
-		s->minus = 1;
-	else if (**str == '0')
-		s->zero = 1;
-	else if (**str == '+')
-		s->plus = 1;
-	else if (**str == ' ')
-		s->space = 1;
-	else if (**str == '#')
-		s->hash = 1;
-	else
-		break ;
-	(*str)++;
+	{
+		if (**str == '-')
+			s->minus = 1;
+		else if (**str == '0')
+			s->zero = 1;
+		else if (**str == '+')
+			s->plus = 1;
+		else if (**str == ' ')
+			s->space = 1;
+		else if (**str == '#')
+			s->hash = 1;
+		else
+			break ;
+		(*str)++;
+	}
 }
 
 void	handle_width(const char **str, t_string s)
@@ -35,7 +37,7 @@ void	handle_width(const char **str, t_string s)
 	s->width = 0;
 	while (ft_isdigit(**format))
 	{
-		s->width = s->width * 10 + (**str -'0');
+		s->width = s->width * 10 + (**str - '0');
 		(*str)++;
 	}
 }

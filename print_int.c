@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char.c                                       :+:      :+:    :+:   */
+/*   print_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 18:22:59 by kkaman            #+#    #+#             */
-/*   Updated: 2025/11/01 02:02:17 by kkaman           ###   ########.fr       */
+/*   Created: 2025/11/01 02:14:42 by kkaman            #+#    #+#             */
+/*   Updated: 2025/11/01 02:30:09 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int	print_char(t_string *s, int c)
+int	print_int(t_string *s, int n)
 {
-	int	count;
-	int	padding;
+	long	num;
+	char	sign;
+	int	lens[3];
 
-	count = 0;
-	padding = 0;
-	if (s->width > 1)
-		padding = s->width - 1;
-	else
-		padding = 0;
-	if (s->minus)
+	num = (long)n;
+	sign = get_sign(s, num);
+	if (s->has_prec && s->precision == 0 && num == 0)
 	{
-		count += write(1, &c, 1);
-		count += write_padding(padding);
+		lens[2] = s->width;
+		while (len[2]--)
+			write(1, " ", 1);
+		return (s->width);
 	}
-	else
-	{
-		count += write_padding(padding);
-		count += write(1, &c, 1);
-	}
-	return (count);
+	len[0] = get_num_len(num < 0 ? -num : num);
+	len[1] = 0;
+	if
 }

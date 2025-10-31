@@ -1,37 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char.c                                       :+:      :+:    :+:   */
+/*   print_string.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 18:22:59 by kkaman            #+#    #+#             */
-/*   Updated: 2025/11/01 02:02:17 by kkaman           ###   ########.fr       */
+/*   Created: 2025/11/01 01:22:45 by kkaman            #+#    #+#             */
+/*   Updated: 2025/11/01 02:00:35 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+int	write_padding(int padding)
+{
+	int	count;
 
-int	print_char(t_string *s, int c)
+	count = 0;
+	while (padding-- > 0)
+		count += write(1, " ", 1);
+	return (count);
+}
+
+int	print_string(t_string *s, char *str)
 {
 	int	count;
 	int	padding;
+	int	print_len;
 
+	if (!str)
+		str = "(null)";
 	count = 0;
-	padding = 0;
-	if (s->width > 1)
-		padding = s->width - 1;
+	print_len = ft_strlen(str);
+	if (s->has_prec && s->precision < print_len)
+		print_len = s->precision;
+	if (s->width > print_len)
+		padding = s->width - print_len;
 	else
 		padding = 0;
 	if (s->minus)
 	{
-		count += write(1, &c, 1);
+		count += write(1, str, print_len);
 		count += write_padding(padding);
 	}
 	else
 	{
 		count += write_padding(padding);
-		count += write(1, &c, 1);
+		count += write(1, str, print_len);
 	}
 	return (count);
 }

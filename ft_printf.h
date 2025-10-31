@@ -6,27 +6,27 @@
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:20:02 by kkaman            #+#    #+#             */
-/*   Updated: 2025/10/31 18:20:45 by kkaman           ###   ########.fr       */
+/*   Updated: 2025/11/01 02:30:17 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+# define FT_PRINTF_H
 
-#include <stdlib.h>
-#include <stdarg.h>
-#include <unistd.h>
+# include <stdlib.h>
+# include <stdarg.h>
+# include <unistd.h>
 
-typedef struct	s_string
+typedef struct s_string
 {
-	int	minus;
-	int	zero;
-	int	plus;
-	int	space;
-	int	hash;
-	int	width;
-	int	precision;
-	int	has_prec;
+	int		minus;
+	int		zero;
+	int		plus;
+	int		space;
+	int		hash;
+	int		width;
+	int		precision;
+	int		has_prec;
 	char	specifier;
 }	t_string;
 
@@ -37,6 +37,9 @@ void	handle_flag(const char **str);
 void	handle_width(const char **str, t_string s);
 void	handle_precision(const char **str, t_string *s);
 void	init_s(t_string *s);
+int		print_specifier(t_string *s, va_list input);
+int		print_char(t_string *s, int c);
+int		print_string(t_string *s, char *str);
 
-
+int		write_padding(int padding);
 #endif
