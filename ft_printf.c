@@ -6,7 +6,7 @@
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:19:19 by kkaman            #+#    #+#             */
-/*   Updated: 2025/10/30 13:00:01 by kkaman           ###   ########.fr       */
+/*   Updated: 2025/10/31 18:15:34 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,7 @@ int	print_handle(const char **str, va_list input)
 	handle_flag(str, &s);
 	handle_width(str, &s);
 	handle_precision(str, &s);
-	return(print_specifier(str, &s));
+	s->spefifier = **str;
+	(*str)++;
+	return(print_specifier(&s, input));
 }
