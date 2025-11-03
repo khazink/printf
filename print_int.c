@@ -41,7 +41,7 @@ static void calculate_lens(t_string *s, long num, char sign, int *lens)
 	abs_num = num;
 	if (num < 0)
 		abs_num = -num;
-	lens = get_num_len(abs_num);
+	lens[0] = get_num_len(abs_num);
 	lens[1] = 0;
 	if (s->has_prec && s->precision > lens[0])
 		lens[1] = s->precision - lens[0];
@@ -50,4 +50,20 @@ static void calculate_lens(t_string *s, long num, char sign, int *lens)
 		lens[2] -= 1;
 	if (lens[2] < 0)
 		lens[2] = 0;
+}
+
+static char	get_sign(s, num)
+{
+	if (num < 0)
+		return ('-');
+	else if (s->plus)
+		return ('+');
+	else if (s->space)
+		return (' ');
+	return (0);
+}
+
+static int	print_with_left_justify(t_string s, long num, char sign, int *lens)
+{
+	
 }
