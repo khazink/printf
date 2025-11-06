@@ -6,45 +6,52 @@
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 01:22:45 by kkaman            #+#    #+#             */
-/*   Updated: 2025/11/01 02:00:35 by kkaman           ###   ########.fr       */
+/*   Updated: 2025/11/06 16:26:29 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	write_padding(int padding)
+int	calc_string_lens(t_format *fmt, char *str, t_lens *lens)
+{
+	int	len;
+
+	len = ft_strlen(str);
+	lens->print_len = len;
+	if (fmt->has_prec && fmt->precision < len)
+		lens->print_len = fmt->precision;
+	lens->space = 0;
+	if (fmt->width > lens->print_len)
+		lens->spaces = fmt->width - lens->print_len;
+	return (lens->print_len);
+}
+
+int	print_string_left(char *str, t_lens *lens)
 {
 	int	count;
 
 	count = 0;
-	while (padding-- > 0)
-		count += write(1, " ", 1);
+	count += write(1, str, lens->print_len);
+	count += write_padding(' ', lens->spaces);
 	return (count);
 }
 
-int	print_string(t_string *s, char *str)
+int	print_string_right(char *str, t_lens *lens)
 {
 	int	count;
-	int	padding;
-	int	print_len;
+
+	count = 0;
+	count += write_padding(' ', lens->spaces);
+	count += write(1, str, lens->print_len);
+	return (count);
+}
+
+int	print_string(t_format *fmt, char *str)
+{
+	t_lens	lens;
 
 	if (!str)
 		str = "(null)";
-	count = 0;
-	print_len = ft_strlen(str);
-	if (s->has_prec && s->precision < print_len)
-		print_len = s->precision;
-	if (s->width > print_len)
-		padding = s->width - print_len;
-	else
-		padding = 0;
-	if (s->minus)
-	{
-		count += write(1, str, print_len);
-		count += write_padding(padding);
-	}
-	else
-	{
-		count += write_padding(padding);
-		count += write(1, str, print_len);
-	}
-	return (count);
+	calc_string_lens(fmt, str, &lens);
+	if (fmt->minus)
+		return (print_string_left(str, &lens));
+	return (print_string_right(str, &lens));
 }
