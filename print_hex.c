@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_int.c                                        :+:      :+:    :+:   */
+/*   print_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/01 02:14:42 by kkaman            #+#    #+#             */
-/*   Updated: 2025/11/07 10:13:06 by kkaman           ###   ########.fr       */
+/*   Created: 2025/11/07 10:26:22 by kkaman            #+#    #+#             */
+/*   Updated: 2025/11/07 10:30:17 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_int(t_format *fmt, int n)
+int	print_hex(t_format *fmt, unsigned int n, int uppercase)
 {
-	long	num;
-	char	sign;
 	t_lens	lens;
 	int		result;
 
-	num = (long)n;
-	if (num < 0)
-		result = handle_zero_prec_zero_val(fmt, (unsigned long)(-num));
-	else
-		result = handle_zero_prec_zero_val(fmt, (unsigned long)num);
+	result = handle_zero_prec_zero_val(fmt, (unsigned long)n);
 	if (result >= 0)
 		return (result);
-	sign = get_sign(fmt, num);
-	calc_int_lens(fmt, num, sign, &lens);
+	calc_hex_lens(fmt, n, &lens);
 	if (fmt->minus)
-		return (print_int_left(num, sign, &lens));
+		return (print_hex_left(fmt, n, uppercase, &lens));
 	if (fmt->zero && !fmt->has_prec)
-		return (print_int_zero(num, sign, &lens));
-	return (print_int_right);
+		return (print_hex_zero(fmt, n, uppercase, &lens));
+	return (print_hex_right(fmt, n, uppercase, &lens));
 }
