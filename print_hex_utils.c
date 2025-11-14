@@ -6,7 +6,7 @@
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 21:45:00 by kkaman            #+#    #+#             */
-/*   Updated: 2025/11/12 22:16:00 by kkaman           ###   ########.fr       */
+/*   Updated: 2025/11/14 10:34:26 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	calc_hex_lens(t_format *fmt, unsigned int n, t_lens *lens)
 	lens->num_len = get_hex_len(n);
 	lens->zeros = 0;
 	if (fmt->has_prec && fmt->precision > lens->num_len)
-		len->zeros = fmt->precision - lens->num_len;
+		lens->zeros = fmt->precision - lens->num_len;
 	lens->prefix_len = 0;
 	if (fmt->hash && n != 0)
 		lens->prefix_len = 2;
@@ -67,7 +67,7 @@ int	print_hex_right(t_format *fmt, unsigned int n, int up, t_lens *lens)
 	int	count;
 
 	count = 0;
-	count += write_padding(' ', lens->space);
+	count += write_padding(' ', lens->spaces);
 	if (fmt->hash && n != 0)
 	{
 		if (up)

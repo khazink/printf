@@ -6,13 +6,13 @@
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:02:02 by kkaman            #+#    #+#             */
-/*   Updated: 2025/11/06 12:49:32 by kkaman           ###   ########.fr       */
+/*   Updated: 2025/11/14 09:23:05 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	init_format(t_format, *fmt)
+void	init_format(t_format *fmt)
 {
 	ft_memset(fmt, 0, sizeof(t_format));
 }
@@ -22,7 +22,7 @@ int	handle_conversion(t_format *fmt, va_list args)
 	if (fmt->specifier == 'c')
 		return (print_char(fmt, va_arg(args, int)));
 	if (fmt->specifier == 's')
-		return (print_string(fmt, va_arg(args, *char)));
+		return (print_string(fmt, va_arg(args, char *)));
 	if (fmt->specifier == 'p')
 		return (print_pointer(fmt, va_arg(args, void *)));
 	if (fmt->specifier == 'd' || fmt->specifier == 'i')

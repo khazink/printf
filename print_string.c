@@ -6,9 +6,11 @@
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 01:22:45 by kkaman            #+#    #+#             */
-/*   Updated: 2025/11/06 16:26:29 by kkaman           ###   ########.fr       */
+/*   Updated: 2025/11/14 09:55:30 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
 
 int	calc_string_lens(t_format *fmt, char *str, t_lens *lens)
 {
@@ -18,7 +20,7 @@ int	calc_string_lens(t_format *fmt, char *str, t_lens *lens)
 	lens->print_len = len;
 	if (fmt->has_prec && fmt->precision < len)
 		lens->print_len = fmt->precision;
-	lens->space = 0;
+	lens->spaces = 0;
 	if (fmt->width > lens->print_len)
 		lens->spaces = fmt->width - lens->print_len;
 	return (lens->print_len);

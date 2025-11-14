@@ -6,7 +6,7 @@
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:19:19 by kkaman            #+#    #+#             */
-/*   Updated: 2025/11/06 12:01:43 by kkaman           ###   ########.fr       */
+/*   Updated: 2025/11/14 10:40:49 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_printf(char const *format, ...)
 		}
 		else
 		{
-			ft_putchar(*format);
+			count += write(1, format, 1);
 			count++;
 		}
 		format++;

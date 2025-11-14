@@ -6,9 +6,11 @@
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 22:29:59 by kkaman            #+#    #+#             */
-/*   Updated: 2025/11/12 22:48:45 by kkaman           ###   ########.fr       */
+/*   Updated: 2025/11/14 10:35:27 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
 
 void	calc_ptr_lens(unsigned long addr, t_format *fmt, t_lens *lens)
 {

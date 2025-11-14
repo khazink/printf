@@ -6,7 +6,7 @@
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 10:31:14 by kkaman            #+#    #+#             */
-/*   Updated: 2025/11/07 10:43:43 by kkaman           ###   ########.fr       */
+/*   Updated: 2025/11/14 10:32:30 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	calc_unsigned_lens(t_format *fmt, unsigned int n, t_lens *lens)
 	lens->total_len = lens->num_len + lens->zeros;
 	lens->spaces = 0;
 	if (fmt->width > lens->total_len)
-		lens->spaces = fmt->width - lens->total_lens;
+		lens->spaces = fmt->width - lens->total_len;
 }
 
 int	print_unsigned_left(unsigned int n, t_lens *lens)

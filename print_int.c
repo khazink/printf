@@ -6,7 +6,7 @@
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 02:14:42 by kkaman            #+#    #+#             */
-/*   Updated: 2025/11/07 10:13:06 by kkaman           ###   ########.fr       */
+/*   Updated: 2025/11/14 10:31:26 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ int	print_int(t_format *fmt, int n)
 		return (print_int_left(num, sign, &lens));
 	if (fmt->zero && !fmt->has_prec)
 		return (print_int_zero(num, sign, &lens));
-	return (print_int_right);
+	return (print_int_right(num, sign, &lens));
 }

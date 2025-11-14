@@ -6,7 +6,7 @@
 #    By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/29 15:20:27 by kkaman            #+#    #+#              #
-#    Updated: 2025/11/12 23:06:27 by kkaman           ###   ########.fr        #
+#    Updated: 2025/11/14 09:11:53 by kkaman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,10 @@ AR	= ar rcs
 
 RM	= rm -f
 
-SRC	= ft_printf.c parse_format.c parse_utils
+SRC	= ft_printf.c parse_format.c parse_utils.c print_char.c print_string.c \
+	  print_int.c print_int_utils.c print_unsigned.c print_unsigned_utils.c \
+	  print_hex.c print_hex_utils.c print_pointer.c print_pointer_utils.c \
+	  print_percent.c ft_strlen.c ft_memset.c number_utils.c print_utils.c
 
 OBJ	= $(SRC:.c=.o)
 
