@@ -6,7 +6,7 @@
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 17:19:32 by kkaman            #+#    #+#             */
-/*   Updated: 2025/11/14 10:31:56 by kkaman           ###   ########.fr       */
+/*   Updated: 2025/11/15 14:10:28 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	print_int_left(long num, char sign, t_lens *lens)
 	return (count);
 }
 
-int	print_int_zeros(long num, char sign, t_lens *lens)
+int	print_int_zero(long num, char sign, t_lens *lens)
 {
 	int	count;
 

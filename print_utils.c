@@ -6,7 +6,7 @@
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 09:36:45 by kkaman            #+#    #+#             */
-/*   Updated: 2025/11/07 10:12:00 by kkaman           ###   ########.fr       */
+/*   Updated: 2025/11/15 15:04:22 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	print_hex_recursive(unsigned long n, int uppercase)
 	if (uppercase)
 		base = "0123456789ABCDEF";
 	else
-		base = "0123456789ABCDEF";
+		base = "0123456789abcdef";
 	if (n >= 16)
 		count += print_hex_recursive(n / 16, uppercase);
 	count += write(1, &base[n % 16], 1);

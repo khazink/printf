@@ -6,7 +6,7 @@
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:30:28 by kkaman            #+#    #+#             */
-/*   Updated: 2025/11/06 14:29:15 by kkaman           ###   ########.fr       */
+/*   Updated: 2025/11/15 22:58:17 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	parse_precision(const char **format, t_format *fmt)
 		(*format)++;
 		while (ft_isdigit(**format))
 		{
-			fmt->precision = fmt->precision * 10 + (**format + '0');
+			fmt->precision = fmt->precision * 10 + (**format - '0');
 			(*format)++;
 		}
 	}

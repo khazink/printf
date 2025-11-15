@@ -6,7 +6,7 @@
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 21:45:00 by kkaman            #+#    #+#             */
-/*   Updated: 2025/11/14 10:34:26 by kkaman           ###   ########.fr       */
+/*   Updated: 2025/11/15 15:02:47 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	print_hex_zero(t_format *fmt, unsigned int n, int up, t_lens *lens)
 		if (up)
 			count += write(1, "0X", 2);
 		else
-			count += write(1, "0X", 2);
+			count += write(1, "0x", 2);
 	}
 	count += write_padding('0', lens->spaces);
 	count += print_hex_recursive(n, up);
@@ -73,7 +73,7 @@ int	print_hex_right(t_format *fmt, unsigned int n, int up, t_lens *lens)
 		if (up)
 			count += write(1, "0X", 2);
 		else
-			count += write(1, "0X", 2);
+			count += write(1, "0x", 2);
 	}
 	count += write_padding('0', lens->zeros);
 	count += print_hex_recursive(n, up);

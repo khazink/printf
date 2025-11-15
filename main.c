@@ -5,21 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/29 15:18:57 by kkaman            #+#    #+#             */
-/*   Updated: 2025/10/29 15:19:48 by kkaman           ###   ########.fr       */
+/*   Created: 2025/11/15 23:28:41 by kkaman            #+#    #+#             */
+/*   Updated: 2025/11/15 23:48:20 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include "ft_printf.h"
 
-int     main(void)
+int	main(void)
 {
-        int     count;
+	int	ret;
 
-        count = ft_printf("All are great");
-        printf("\n%d\n",count);
-        count = ft_printf("get some %d here");
-        printf("\n2nd row %d\n", count);
-        return 0;
+	ret = ft_printf("input here %d\n", 42);
+	ft_printf("Return value = %d\n", ret);
+	return (0);
 }
-

@@ -6,7 +6,7 @@
 /*   By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:20:02 by kkaman            #+#    #+#             */
-/*   Updated: 2025/11/14 10:42:36 by kkaman           ###   ########.fr       */
+/*   Updated: 2025/11/15 23:23:33 by kkaman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_format
 	char	specifier;
 }	t_format;
 
-typedef	struct s_lens
+typedef struct s_lens
 {
 	int	num_len;
 	int	zeros;

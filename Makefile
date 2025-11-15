@@ -6,15 +6,15 @@
 #    By: kkaman <kkaman@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/29 15:20:27 by kkaman            #+#    #+#              #
-#    Updated: 2025/11/14 09:11:53 by kkaman           ###   ########.fr        #
+#    Updated: 2025/11/15 23:08:45 by kkaman           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= printf.a
+NAME	= libftprintf.a
 
 CC	= cc
 
-CFLAG	= -Wall -Wextra -Werror
+CFLAG	= -Wall -Wextra -Werror -fPIC
 
 AR	= ar rcs
 
@@ -30,6 +30,9 @@ OBJ	= $(SRC:.c=.o)
 ALL	= $(NAME)
 
 $(NAME) : $(OBJ)
+	$(AR) $(NAME) $(OBJ)
+
+bonus: $(OBJ)
 	$(AR) $(NAME) $(OBJ)
 
 %.o:%.c

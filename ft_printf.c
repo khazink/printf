@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 int	ft_printf(char const *format, ...)
 {
@@ -32,9 +31,8 @@ int	ft_printf(char const *format, ...)
 		else
 		{
 			count += write(1, format, 1);
-			count++;
+			format++;
 		}
-		format++;
 	}
 	va_end(args);
 	return (count);
