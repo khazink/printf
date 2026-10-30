@@ -17,7 +17,7 @@ void	init_format(t_format *fmt)
 	ft_memset(fmt, 0, sizeof(t_format));
 }
 
-int	handle_conversion(t_format *fmt, va_list args)
+int	handle_conversion(t_format *fmt, va_list args)// handle conversion
 {
 	if (fmt->specifier == 'c')
 		return (print_char(fmt, va_arg(args, int)));
